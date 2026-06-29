@@ -1,0 +1,94 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-image-tote",
+      "description": "Primer plano de granos de café tostados.",
+      "imageUrl": "https://i.imgur.com/KkcYApv.jpeg",
+      "imageHint": "coffee beans"
+    },
+    {
+      "id": "edicion-especial-cafe-img",
+      "description": "Una elegante bolsa de café de nuestra edición especial de 250g.",
+      "imageUrl": "https://i.imgur.com/1cySdvP.jpeg",
+      "imageHint": "bolsa de café"
+    },
+    {
+      "id": "historia-totekafe-img",
+      "description": "Taza de café en una finca",
+      "imageUrl": "https://i.imgur.com/CIoi7YD.jpeg",
+      "imageHint": "coffee farm"
+    },
+    {
+      "id": "merch-tote",
+      "description": "Una totebag de lienzo con el logo y diseño de Totekafé.",
+      "imageUrl": "https://i.imgur.com/1XkIuR9.jpeg",
+      "imageHint": "tote bag"
+    },
+    {
+      "id": "curso-asesoria-cafe-img",
+      "description": "Persona recibiendo asesoría sobre preparación de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1734174052719-db7529ab6a40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxiYXJpc3RhJTIwdGVhY2hpbmd8ZW58MHx8fHwxNzYyMjg2MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "barista teaching"
+    },
+    {
+      "id": "merch-cap",
+      "description": "Gorra de Totekafé.",
+      "imageUrl": "https://images.unsplash.com/photo-1483103068651-8ce44652c331?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FwfGVufDB8fHx8MTc2MjI4NjExNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cap"
+    },
+    {
+      "id": "merch-cap-2",
+      "description": "Gorra de Totekafé.",
+      "imageUrl": "https://images.unsplash.com/photo-1560774358-d727658f457c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYXB8ZW58MHx8fHwxNzYyMjg2MTE0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cap"
+    },
+    {
+      "id": "merch-shirt",
+      "description": "Camiseta de Totekafé.",
+      "imageUrl": "https://images.unsplash.com/photo-1711641066067-3c1d03492345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0LXNoaXJ0fGVufDB8fHx8MTc2MjI0NzI3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "t-shirt"
+    },
+    {
+      "id": "merch-pants",
+      "description": "Pantalones deportivos marrones.",
+      "imageUrl": "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwYW50c3xlbnwwfHx8fDE3NjIyNDg5MjV8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "pants"
+    },
+    {
+      "id": "deco-coffee-plant",
+      "description": "Ilustración de una planta de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1580196969807-cc6de06c05be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxpbGx1c3RyYXRpb258ZW58MHx8fHwxNzYyMjEwNzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "illustration"
+    },
+    {
+      "id": "deco-coffee-cup",
+      "description": "Taza de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1556742526-795a8eac090e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MXwxfHNlYXJjaHw4fHxjb2ZmZWV8ZW58MHx8fHwxNzYyMjg2MTE0fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee"
+    },
+    {
+      "id": "deco-coffee-bean-1",
+      "description": "Grano de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1606791405792-1004f1718d0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2ZmZWUlMjBiZWFufGVufDB8fHx8MTc2MjIzOTIyNnww&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee bean"
+    },
+    {
+      "id": "deco-coffee-bean-2",
+      "description": "Grano de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1620820186187-fc32e79adb74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBiZWFufGVufDB8fHx8MTc2MjIzOTIyNnww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee bean"
+    },
+    {
+      "id": "deco-coffee-bean-3",
+      "description": "Grano de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1612487458970-564127ec86f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb2ZmZWUlMjBiZWFufGVufDB8fHx8MTc2MjIzOTIyNnww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee bean"
+    },
+    {
+      "id": "deco-coffee-bean-4",
+      "description": "Grano de café.",
+      "imageUrl": "https://images.unsplash.com/photo-1620820186187-fc32e79adb74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBiZWFufGVufDB8fHx8MTc2MjIzOTIyNnww&ixlib.rb-4.1.0&q=80&w=1080",
+      "imageHint": "coffee bean"
+    }
+  ]
+}

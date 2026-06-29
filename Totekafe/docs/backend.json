@@ -1,0 +1,175 @@
+
+{
+  "entities": {
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a coffee product sold by Totekafe.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the product."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the coffee product."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the coffee product."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the image for the coffee product.",
+          "format": "uri"
+        },
+        "price": {
+          "type": "number",
+          "description": "Price of the coffee product."
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the product (e.g., blend, single origin, course)."
+        },
+        "roastLevel": {
+          "type": "string",
+          "description": "Roast level of the coffee (e.g., light, medium, dark)."
+        },
+        "origin": {
+          "type": "string",
+          "description": "The origin of the coffee beans."
+        },
+        "stockQuantity": {
+          "type": "number",
+          "description": "The number of items currently in stock."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "imageUrl",
+        "price"
+      ]
+    },
+    "ShoppingCartItem": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ShoppingCartItem",
+      "type": "object",
+      "description": "Represents an item in the shopping cart.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the shopping cart item."
+        },
+        "productId": {
+          "type": "string",
+          "description": "Reference to Product. (Relationship: Product 1:N ShoppingCartItem)"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Quantity of the product in the cart."
+        }
+      },
+      "required": [
+        "id",
+        "productId",
+        "quantity"
+      ]
+    },
+    "Order": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Order",
+      "type": "object",
+      "description": "Represents a customer order.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the order."
+        },
+        "orderDate": {
+          "type": "string",
+          "description": "Date when the order was placed.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status of the order (e.g., pending, processing, shipped, delivered)."
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Total amount of the order."
+        },
+        "shippingAddress": {
+          "type": "string",
+          "description": "Shipping address for the order."
+        },
+        "billingAddress": {
+          "type": "string",
+          "description": "Billing address for the order."
+        }
+      },
+      "required": [
+        "id",
+        "orderDate",
+        "status",
+        "totalAmount",
+        "shippingAddress",
+        "billingAddress"
+      ]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores public profile information for a user.",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "The user's full name."
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The user's date of birth."
+        }
+      },
+      "required": [
+        "fullName",
+        "dateOfBirth"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "email",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": {
+        "$ref": "#/entities/Product"
+      },
+      "description": "Stores all product information."
+    },
+    "/users/{userId}/cart/{cartItemId}": {
+      "schema": {
+        "$ref": "#/entities/ShoppingCartItem"
+      },
+      "description": "Stores shopping cart items for each user."
+    },
+    "/users/{userId}/orders/{orderId}": {
+      "schema": {
+        "$ref": "#/entities/Order"
+      },
+      "description": "Stores order information for each user."
+    },
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Stores public information about a user."
+    }
+  }
+}

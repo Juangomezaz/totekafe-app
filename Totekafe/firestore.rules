@@ -1,0 +1,88 @@
+/**
+ * @fileoverview Firestore Security Rules for Totekafe.
+ *
+ * Core Philosophy:
+ * This ruleset enforces a combination of public read access for product listings and strict user-ownership for shopping carts and orders. This ensures that product information is widely available while protecting user-specific data.
+ *
+ * Data Structure:
+ * - /products/{productId}: Stores publicly readable product information.
+ * - /users/{userId}/cart/{cartItemId}: Stores private shopping cart data for each user.
+ * - /users/{userId}/orders/{orderId}: Stores private order history for each user.
+ *
+ * Key Security Decisions:
+ * - Products are publicly readable but not writable by clients.
+ * - Only the authenticated user can read, create, update, or delete their own cart and order data.
+ * - Listing of user documents is explicitly allowed to support client-side functionality.
+ *
+ * Denormalization for Authorization:
+ * Not used in this ruleset as user ownership is based on path.
+ *
+ * Structural Segregation:
+ * Products and user data are stored in separate collections with distinct security profiles.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /**
+     * @description Allows public read access to product information, but restricts write access.
+     * @path /products/{productId}
+     * @allow (get, list): Any user (signed in or not) can read product details.
+     * @allow (create, update, delete): No user can create, update, or delete products.
+     * @deny (create, update, delete): Any attempt to modify product data will be rejected.
+     * @principle Allows public read access while preventing unauthorized modifications.
+     */
+    match /products/{productId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Enforces user-ownership for shopping cart items. Only the authenticated user can manage their own cart.
+     * @path /users/{userId}/cart/{cartItemId}
+     * @allow (create): User A can create a cart item under /users/A/cart/123 if authenticated as user A.
+     * @allow (get, list, update, delete): User A can read, list, update, and delete cart items under /users/A/cart/{cartItemId} if authenticated as user A.
+     * @deny (create, get, list, update, delete): User B cannot access User A's cart data.
+     * @principle Enforces document ownership for all cart-related operations.
+     */
+    match /users/{userId}/cart/{cartItemId} {
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isExistingOwner(userId);
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+
+    /**
+     * @description Enforces user-ownership for order information. Only the authenticated user can manage their own orders.
+     * @path /users/{userId}/orders/{orderId}
+     * @allow (create): User A can create an order under /users/A/orders/456 if authenticated as user A.
+     * @allow (get, list, update, delete): User A can read, list, update, and delete orders under /users/A/orders/{orderId} if authenticated as user A.
+     * @deny (create, get, list, update, delete): User B cannot access User A's order data.
+     * @principle Enforces document ownership for all order-related operations.
+     */
+    match /users/{userId}/orders/{orderId} {
+      allow get: if isSignedIn() && isOwner(userId);
+      allow list: if isSignedIn() && isOwner(userId);
+      allow create: if isSignedIn() && isOwner(userId);
+      allow update: if isSignedIn() && isExistingOwner(userId);
+      allow delete: if isSignedIn() && isExistingOwner(userId);
+    }
+  }
+
+  // Helper functions
+  function isSignedIn() {
+    return request.auth != null;
+  }
+
+  function isOwner(userId) {
+    return request.auth.uid == userId;
+  }
+
+    function isExistingOwner(userId) {
+    return isSignedIn() && isOwner(userId) && resource != null;
+  }
+}
